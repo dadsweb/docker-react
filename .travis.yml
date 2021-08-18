@@ -5,7 +5,17 @@ services:
   - docker
 
 before_install:
-  - docker build -t dadsweb/docker-react -f Dockerfile.dev .
+  - docker build -t stephengrider/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true dadsweb/docker-react npm run test -- --coverage
+  - docker run -e CI=true stephengrider/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'docker'
+  env: 'docker-env'
+  bucket_name: 'elasticbeanstalk-ap-northeast-1-322332634763'
+  bucket_path: 'docker'
+  on:
+    branch: master
