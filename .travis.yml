@@ -13,10 +13,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: 'ap-northeast-1'
-  app: 'Doc-react'
-  env: 'Docreact-env'
+  app: 'dkreact'
+  env: 'Dkreact-env'
   bucket_name: 'elasticbeanstalk-ap-northeast-1-322332634763'
-  bucket_path: 'Doc-react'
+  bucket_path: 'dkreact'
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
